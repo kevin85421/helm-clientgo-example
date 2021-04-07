@@ -151,6 +151,7 @@ func RepoUpdate() {
 // InstallChart
 func InstallChart(name, repo, chart string, args map[string]string) {
 	actionConfig := new(action.Configuration)
+	debug("KUBECONFIG: %s", settings.KubeConfig)
 	if err := actionConfig.Init(settings.RESTClientGetter(), settings.Namespace(), os.Getenv("HELM_DRIVER"), debug); err != nil {
 		log.Fatal(err)
 	}

@@ -19,3 +19,16 @@ Running this example does the following operations:
   kubectl create ns mysql-test
   ```
 - Run the program with `go run main.go`
+## Running the example in-cluster
+```
+make image
+kubectl apply -f helm-clientgo-example-service-account.yaml
+kubectl apply -f helm-clientgo-example.yaml
+kubectl get all -n mysql-test
+```
+* Delete:
+```
+kubectl delete deployment demo
+kubectl delete ns mysql-test  
+```
+* TODO: Pod "demo" will crash after the execution of MySQL chart 
